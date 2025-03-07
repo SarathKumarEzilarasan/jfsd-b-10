@@ -1,0 +1,52 @@
+Q2: 
+2.1) Create a class Student with the following properties and methods:
+Properties: studentId, name, marks (out of 100).
+Default marks should be 0.
+Constructor should allow initializing studentId and name.
+Method to set marks for the student.
+Method to display student details.
+
+
+2.2) Create a class Book with the following properties and methods:
+Properties: bookId, title, author, price.
+Constructor should allow initializing all values.
+Method to display book details.
+Create another class Library that:
+a. Accepts five books from the user and stores them in an array.
+b. Finds and displays the most expensive book.
+c. Calculates the total cost of all books.
+
+
+2.3) Create a class BankAccount with the following properties and methods:
+Properties: accountNumber, holderName, balance.
+Constructor should initialize accountNumber, holderName, and balance.
+Method to deposit money.
+Method to withdraw money (only if sufficient balance is available).
+Method to display account details.
+
+2.4) Create a class Employee with the following properties and methods:
+Properties: empId, name, salary.
+Constructor should initialize empId, name, and salary.
+Method to apply bonus of 10% to the salary.
+Method to display employee details.
+
+2.5) Create a class Car with the following properties and methods:
+Properties: model, company, price.
+Constructor should initialize model, company, and price.
+Method to apply a discount of 5% on the price.
+Method to display car details.
+
+Q2.6: Vehicle and Car Inheritance
+Create a base class Vehicle with the following attributes:
+
+brand (String)
+model (String)
+year (int)
+It should also have a method:
+displayInfo() → prints the vehicle details
+Create a subclass Car that extends Vehicle with an additional attribute:
+fuelType (String, e.g., Petrol, Diesel, Electric)
+The Car class should override displayInfo() to also display the fuel type.
+Write a Java program that creates a Car object and prints its details using inheritance.
+
+
