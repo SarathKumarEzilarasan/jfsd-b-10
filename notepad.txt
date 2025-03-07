@@ -1,0 +1,121 @@
+OOPS -> Object Oriented Programming Language -> Java
+
+- inheritance
+- encapsulation
+- polymorphism
+- absraction
+
+
+- inheritance
+   - single inheritance
+   - multi level inheritance
+   - multiple inheritance ???? -> diamond problem
+
+- encapsulation
+
+
+private -> only the same class can access it
+default -> can be accessed within the class + other classes in the same package
+protected -> can be accessed within the class + other classes in the same package + child classes in diff package
+public -> can be accessed within the class + other classes in the same package + other classes in diff package
+
+
+
+package -> default
+
+package + child classes in diff package also -> protected
+
+
+
+
+
+
+
+
+
+private > default > protected > public ---> access modifiers
+
+
+
+User
+- name
+- salary
+
+Manager extends User
+
+- reporting employees
+
+ 
+Employee extends User
+
+
+- polymorphism -> more than 1 [poly]
+   - overloading: compile time polymorphism
+   - overriding: run time polymorphism
+
+
+        Tata tata;
+        Bmw bmw;
+        
+        if (price > 1000){
+            bmw = new Bmw();
+            bmw.breaks();
+            bmw.tyres();
+        }else {
+            tata = new Tata();
+            tata.breaks();
+            tata.tyres();
+        }
+
+
+
+
+        Car car;
+
+        if (price > 1000) {
+            car = new Bmw();
+        } else {
+            car = new Tata();
+        }
+
+        car.tyres();
+
+
+this, super , final
+
+final
+- variable -> it will become a constant
+- method -> overriding is not allowed
+- class -> class cannot be extended to add additional properties
+
+
+
+absraction -> it will give a set of rules or blue print
+- abstract class -> partial abstraction
+- interface -> full abstraction [multiple inheritance]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
