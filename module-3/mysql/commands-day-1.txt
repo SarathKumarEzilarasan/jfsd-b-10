@@ -1,0 +1,140 @@
+use w3schools;
+
+show tables;
+
+select customerid,customername from customers;
+
+select * from customers;
+
+select * from customers where country = 'uk';
+
+select * from customers where country = 'uk' and city = 'cowes' ;
+
+select * from customers where country = 'uk' or country = 'mexico' ;
+
+select * from customers where customername like 's%';
+
+select * from customers where customername like '%s';
+
+select * from customers where customername like '%s%';
+
+select * from customers where customername like '_s%';
+
+select * from customers where customername not like '_s%';
+
+select * from products where price = 30;
+
+select * from products where price <= 30;
+
+select * from products where price <> 30;
+
+select * from products where price > 30 and price < 50;
+
+select * from products where price between 30 and 50;
+
+select * from customers where country in ('uk','mexico','usa') ;
+
+select * from customers where country not in ('uk','mexico','usa') ;
+
+select * from customers order by country;
+
+select * from customers order by country desc;
+
+select * from customers order by country asc, customername asc;
+
+select * from customers limit 10;
+
+select * from customers limit 10 offset 20;
+
+select min(price) as min_price from products;
+
+select max(price) as max_price from products;
+
+select avg(price) as avg_price from products;
+
+select sum(price) as sum_price from products;
+
+select count(*) as count_price from products;
+
+select orders.orderId, customers.customername,customers.customerid, orders.orderdate 
+from orders
+join customers on orders.customerid = customers.customerid;
+
+select orders.orderId, customers.customername,customers.customerid, orders.orderdate 
+from orders
+right join customers on orders.customerid = customers.customerid;
+
+select orders.orderId, customers.customername,customers.customerid, orders.orderdate 
+from orders
+left join customers on orders.customerid = customers.customerid;
+
+select orders.orderId, customers.customername,customers.customerid, orders.orderdate 
+from orders
+cross join customers on orders.customerid = customers.customerid;
+
+select orders.orderId, customers.customername,customers.customerid, orders.orderdate 
+from orders
+join customers on orders.customerid = customers.customerid
+where customers.country = 'uk'
+order by customerid;
+
+
+select count(customerid),country from customers group by country;
+
+select count(customerid),country from customers group by country having count(customerid) > 5;
+
+
+select count(customers.customername), country 
+from orders
+join customers on orders.customerid = customers.customerid
+where customers.country = 'uk'
+group by country
+having count(customers.customername) > 3
+order by country;
+
+insert into customers 
+(customername, contactname,address,city,postalcode,country)
+values
+('john doe','john doe','No 1 street','chennai',600001,'India');
+
+
+update customers set contactname = 'jane doe', city = 'bangalore' where customerid = 118;
+
+
+delete from customers where customerid = 118;
+
+select * from customers;
+
+create database jfsd;
+
+drop database jfsd;
+
+use jfsd;
+
+create table persons (
+	personid int, 
+	name varchar(255),
+	city varchar(255)
+);
+
+drop table persons;
+
+alter table persons add email varchar(255);
+
+alter table persons drop email;
+
+alter table persons modify email date;
+
+create table persons (
+	personid int not null auto_increment, 
+	name varchar(255) not null,
+	city varchar(255),
+    primary key (personid)
+);
+
+insert into persons 
+(name,city)
+values
+('john','chennai');
+
+select * from persons;
