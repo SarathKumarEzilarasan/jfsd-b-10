@@ -138,3 +138,86 @@ values
 ('john','chennai');
 
 select * from persons;
+
+
+
+
+create index idx_name
+on persons (name);
+
+alter table persons
+drop index idx_name;
+
+-- view
+create or replace view BRAZIL as
+select customerName, contactname 
+from customers
+where country = 'brazil';
+
+
+select * from BRAZIL;
+
+drop view BRAZIL;
+
+
+-- TCL statements (commit, rollback , savepoint)
+
+start transaction;
+insert into customers (customername, country) values ('john doe','usa');
+insert into customers (customername, country) values ('jane doe','uk');
+commit;
+
+start transaction;
+insert into customers (customername, country) values ('john doe','usa');
+rollback;
+
+select * from customers;
+
+
+start transaction;
+insert into customers (customername, country) values ('john doe','usa');
+savepoint save1;
+
+insert into customers (customername, country) values ('jane doe','usa');
+rollback to save1;
+commit;
+
+
+-- DCL commands
+
+create user 'student_user'@'localhost' IDENTIFIED BY 'Student@123';
+
+GRANT select, insert on w3schools.* to 'student_user'@'localhost';
+
+show grants for 'student_user'@'localhost';
+
+revoke insert on w3schools.* from 'student_user'@'localhost';
+
+drop user 'student_user'@'localhost';
+
+
+-- subqueries
+
+select * from 
+customers
+where country = (select country from customers where customerid = 1);
+
+
+select * from 
+customers
+where country in (select country from suppliers);
+
+select * from orders
+where (customerid, orderdate) in 
+(select customerid, orderdate from orders where customerid = 1);
+
+
+select customername , 
+	(select count(*) from orders where orders.customerid = customers.customerid) as totalOrders
+from customers;
+
+
+select customerid, avg(orderamount) as avgAmount from
+(select customerid, sum(amount) as orderAmount from orders group by customerid) 
+as orderSummary
+group by customerid;
